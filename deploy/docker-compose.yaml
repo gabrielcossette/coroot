@@ -16,8 +16,6 @@ services:
     image: ghcr.io/coroot/coroot
     volumes:
       - coroot_data:/data
-    ports:
-      - 8080:8080
     command:
       - '--data-dir=/data'
       - '--bootstrap-prometheus-url=http://prometheus:9090'
