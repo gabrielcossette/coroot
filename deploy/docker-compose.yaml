@@ -27,20 +27,20 @@ services:
       - clickhouse
       - prometheus
 
-  node-agent:
-    restart: always
-    image: ghcr.io/coroot/coroot-node-agent
-    privileged: true
-    pid: "host"
-    volumes:
-      - /sys/kernel/tracing:/sys/kernel/tracing
-      - /sys/kernel/debug:/sys/kernel/debug
-      - /sys/fs/cgroup:/host/sys/fs/cgroup
-      - node_agent_data:/data
-    command:
-      - '--collector-endpoint=http://coroot:8080'
-      - '--cgroupfs-root=/host/sys/fs/cgroup'
-      - '--wal-dir=/data'
+#  node-agent:
+#    restart: always
+#    image: ghcr.io/coroot/coroot-node-agent
+#    privileged: true
+#    pid: "host"
+#    volumes:
+#      - /sys/kernel/tracing:/sys/kernel/tracing
+#      - /sys/kernel/debug:/sys/kernel/debug
+#      - /sys/fs/cgroup:/host/sys/fs/cgroup
+#      - node_agent_data:/data
+#    command:
+#      - '--collector-endpoint=http://coroot:8080'
+#      - '--cgroupfs-root=/host/sys/fs/cgroup'
+#      - '--wal-dir=/data'
 
   cluster-agent:
     restart: always
